@@ -29,13 +29,13 @@ lyrics_2000 <- readLines("http://www.textfiles.com/etext/FICTION/barrie-peter-27
 
 # Check peter pan:
 head(lyrics_2000, n = 20)
-lyrics_2000_df <- data_frame(Text = peter_pan) # tibble aka neater data frame
+lyrics_2000_df <- data_frame(Text = lyrics_2000) # tibble aka neater data frame
 
 head(lyrics_2000_df, n = 20)
-lyrics_2000 <- lyrics_2000_df %>% 
+lyrics_2000_words <- lyrics_2000_df %>% 
                   unnest_tokens(output = word, input = Text) 
-lyrics_2000 <- lyrics_2000 %>%
+lyrics_2000_words <- lyrics_2000_words %>%
                    anti_join(stop_words) # Remove stop words in peter_words
-peter_wordcounts <- peter_words %>% count(word, sort = TRUE)
+lyrics_2000_wordcounts <- lyrics_2000_words %>% count(word, sort = TRUE)
 
-head(peter_wordcounts)
+head(lyrics_2000_wordcounts)

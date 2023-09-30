@@ -60,8 +60,8 @@ def save_lyrics_to_file(lyrics_by_year):
 # Main function
 def main():
     # Fetch playlists for the specified years
-    playlists = ['37i9dQZF1DX9Ol4tZWPH6V', '37i9dQZF1DX0P7PzzKwEKl', '37i9dQZF1DXaW8fzPh9b08', '37i9dQZF1DWTWdbR13PQYH', '37i9dQZF1DWWzQTBs5BHX9', '37i9dQZF1DX1vSJnMeoy3V', '37i9dQZF1DX3j9EYdzv2N9', '37i9dQZF1DWYuGZUE4XQXm', '37i9dQZF1DX4UkKv8ED8jp', '37i9dQZF1DXc6IFF23C9jj']
-    # playlists = ['37i9dQZF1DWUZv12GM5cFk']
+    # playlists = ['37i9dQZF1DX9Ol4tZWPH6V', '37i9dQZF1DX0P7PzzKwEKl', '37i9dQZF1DXaW8fzPh9b08', '37i9dQZF1DWTWdbR13PQYH', '37i9dQZF1DWWzQTBs5BHX9', '37i9dQZF1DX1vSJnMeoy3V', '37i9dQZF1DX3j9EYdzv2N9', '37i9dQZF1DWYuGZUE4XQXm', '37i9dQZF1DX4UkKv8ED8jp', '37i9dQZF1DXc6IFF23C9jj']
+    playlists = ['37i9dQZF1DWUZv12GM5cFk']
 
     # Get and accumulate lyrics for each year
     lyrics_by_year = {}
