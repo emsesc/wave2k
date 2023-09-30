@@ -5,7 +5,7 @@ packages <- c("wordcloud", "tm")
 
 lapply(packages, require , character.only = TRUE)
 
-lyrics_2000 <- readLines("lyrics_2000.txt")
+lyrics_2000 <- readLines("~/Documents/GitHub/omg-spotify/data/lyrics/2000/lyrics_2000.txt")
 
 lyrics_2000_text <- Corpus(VectorSource(lyrics_2000))
 lyrics_2000_text_clean <- tm_map(lyrics_2000_text, removePunctuation)
@@ -25,8 +25,7 @@ library(dplyr)
 library(tidytext)
 library(ggplot2)
 
-lyrics_2000 <- readLines("http://www.textfiles.com/etext/FICTION/barrie-peter-277.txt")
-
+lyrics_2000 <- readLines("~/Documents/GitHub/omg-spotify/data/lyrics/2000/lyrics_2000.txt")
 # Check peter pan:
 head(lyrics_2000, n = 20)
 lyrics_2000_df <- data_frame(Text = lyrics_2000) # tibble aka neater data frame
@@ -39,3 +38,4 @@ lyrics_2000_words <- lyrics_2000_words %>%
 lyrics_2000_wordcounts <- lyrics_2000_words %>% count(word, sort = TRUE)
 
 head(lyrics_2000_wordcounts)
+```
