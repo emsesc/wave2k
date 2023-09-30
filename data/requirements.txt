@@ -1,0 +1,22 @@
+asgiref==3.7.2
+certifi==2023.7.22
+cffi==1.15.1
+charset-normalizer==3.3.0
+cryptography @ file:///private/tmp/python-cryptography-20230801-94097-rurud2/cryptography-41.0.3
+Django==4.2.5
+djangorestframework==3.14.0
+idna==3.4
+install==1.3.5
+numpy==1.25.2
+Pillow==10.0.0
+pycparser==2.21
+Pygments @ file:///private/tmp/pygments-20230806-26403-12hevdz/Pygments-2.16.1
+python-dotenv==1.0.0
+pytz==2023.3.post1
+PyYAML @ file:///private/tmp/pyyaml-20230717-24053-1puhaqf/PyYAML-6.0.1
+redis==5.0.1
+requests==2.31.0
+six==1.16.0
+spotipy==2.23.0
+sqlparse==0.4.4
+urllib3==2.0.5
