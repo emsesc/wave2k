@@ -19,6 +19,7 @@ genius = Genius(os.environ.get('GENIUS_API_TOKEN'))
 sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=spotify_client_id, client_secret=spotify_client_secret))
 
 # Function to get track details and check lyrics
+# Credit to ChatGPT
 def get_track_details(playlist_id, year):
     results = sp.playlist_tracks(playlist_id)
     tracks = results["items"]
@@ -47,6 +48,7 @@ def fetch_lyrics(song_name, artist):
         return None
 
 # Function to save lyrics for each year to a single text file
+# Credit to ChatGPT
 def save_lyrics_to_file(lyrics_by_year):
     for year, lyrics_list in lyrics_by_year.items():
         year_directory = f"lyrics/{year}"
