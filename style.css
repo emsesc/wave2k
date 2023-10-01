@@ -2,6 +2,7 @@ body {
     font-style: serif;
     background: greenyellow;
 }
+<<<<<<< Updated upstream
 
 /* Reset some default styles */
 body, h1, ul, li {
@@ -76,3 +77,5 @@ h1 {
     padding: 20px;
     border-radius: 10px;
 }
+=======
+>>>>>>> Stashed changes
