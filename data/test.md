@@ -1,3 +1,5 @@
+Credit to: https://dk81.github.io/dkmathstats_site/rtext-freq-words.html
+
 ```R
 library(dplyr)
 library(tidytext)
