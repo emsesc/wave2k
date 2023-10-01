@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/simple-statistics@7.8.3/dist/simple-statistics.min.js"></script>
+    <script src="graph.js"></script>
+  </head>
+  <body>
+    <main>
+        <h1>Welcome to SpotIt</h1>  
+        <p>An interactive visualization tool for how changes in technology affect the use of slang. <br>
+          While testing, we used works like ‘text’ and ‘selfie’ to track the popularization of cellphones.</p>
+
+          <div>
+            <h2>Overall Nostalgia index</h2>
+            <div id="main-graph"></div>
+          </div>
+          <table class="graphs">
+            <tr>
+              <div id="remember-graph">
+              </div>
+              <div id="dreams-graph">
+              </div>
+            </tr>
+            <tr>
+              <div id="time-graph">
+              </div>
+              <div id="home-graph">
+              </div>
+            </tr>
+            <tr>
+              <div id="friends-graph">
+              </div>
+              <div id="moments-graph">
+              </div>
+            </tr>
+          </table>
+    </main>
+	<script src="index.js"></script>
+  </body>
+</html>
