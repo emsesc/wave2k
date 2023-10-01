@@ -3,7 +3,76 @@ body {
     background: greenyellow;
 }
 
-tr div {
-    width: 25%; 
-    padding: 5%; 
+/* Reset some default styles */
+body, h1, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global styles */
+body {
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Navbar styles */
+#navbar {
+    background-color: #00FF59;
+    color: #fff;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between; /* Center-align tabs and push logo to the left */
+    align-items: center; /* Vertically center elements */
+    padding: 10px 20px;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Display tabs in a row */
+}
+
+#navbar li {
+    margin-right: 20px; /* Adjust the spacing between tabs */
+}
+
+#navbar li:last-child {
+    margin-right: 0; /* Remove margin for the last tab */
+}
+
+#navbar li a {
+    display: block;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+}
+
+h1 {
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+/* Page styles */
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.background-image {
+    background-image: url('./assets/background.jpg'); /* Add your background image URL here */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 800px; /* Adjust height as needed */
+}
+
+.page-content {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
 }
