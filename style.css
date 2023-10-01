@@ -1,0 +1,9 @@
+body {
+    font-style: serif;
+    background: greenyellow;
+}
+
+tr div {
+    width: 25%; 
+    padding: 5%; 
+}
