@@ -8,10 +8,30 @@ body, h1, ul, li {
     padding: 0;
 }
 
+
+
 /* Global styles */
 body {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     background-color: #f0f0f0;
+}
+
+svg {
+    background-color: transparent;
+}
+
+h2{
+    margin: 25px;
+}
+
+#main{
+    display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+}
+
+#main-graph {
+    padding: 20px;
 }
 
 .logo {

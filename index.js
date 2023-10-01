@@ -1,60 +1,91 @@
-var margin = {top: 20, right: 20, bottom: 30, left: 50},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+let song_data = [{"": 1,"Year": 2000 ,"Total_Count": 297,"Nostalgia_Index": 0.798387096774194},
+{"": 2,"Year": 2001 ,"Total_Count": 234,"Nostalgia_Index": 0.629032258064516},
+{"": 3,"Year": 2002 ,"Total_Count": 268,"Nostalgia_Index": 0.720430107526882},
+{"": 4,"Year": 2003 ,"Total_Count": 372,"Nostalgia_Index": 1.0},
+{"": 5,"Year": 2004 ,"Total_Count": 372,"Nostalgia_Index": 0.731182795698925},
+{"": 6,"Year": 2005 ,"Total_Count": 252,"Nostalgia_Index": 0.67741935483871},
+{"": 7,"Year": 2006 ,"Total_Count": 291,"Nostalgia_Index": 0.782258064516129},
+{"": 8,"Year": 2007 ,"Total_Count": 308,"Nostalgia_Index": 0.827956989247312},
+{"": 9,"Year": 2008 ,"Total_Count": 237,"Nostalgia_Index": 0.637096774193548},
+{"": 10,"Year": 2009 ,"Total_Count": 297,"Nostalgia_Index": 0.798387096774194},
+{"": 11,"Year": 2010 ,"Total_Count": 278,"Nostalgia_Index": 0.747311827956989},]
 
-// set the ranges
-var x = d3.scaleTime().range([0, width]);
-var y = d3.scaleLinear().range([height, 0]);
+class MeetingVis {
 
-// define the line
-var valueline = d3.line()
-    .x(function(d) { return x(d.Year); })
-    .y(function(d) { return y(d.Nostalgia_Index); });
+    constructor(svg_id, data_to_vis){
+        this.data = data_to_vis;
+        this.svg_id = svg_id;
+    }
 
-// append the svg object to the body of the page
-// appends a 'group' element to 'svg'
-// moves the 'group' element to the top left margin
-var svg = d3.select("#main-graph")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+        render() {
+        const margin = { top: 20, right: 30, bottom: 30, left: 40 };
+        const width = 800;
+        const height = 600;
 
-// Get the data
-d3.csv("./data/nostalgia_index.csv").then(function(data) {
+        const innerWidth = width - margin.left - margin.right;
+        const innerHeight = height - margin.top - margin.bottom;
 
-  // format the data
-//   data.forEach(function(d) {
-//       d.date = parseTime(d.date);
-//       d.close = +d.close;
-//   });
+        //get svg elem
+        let svg = d3.select("#"+this.svg_id);
+        
+        svg.style("background-color", "transparent")
 
-  // Scale the range of the data
-  x.domain(d3.extent(data, function(d) { return d.Year; }));
-  y.domain([0, d3.max(data, function(d) { return d.Nostalgia_Index; })]);
+        let x = d3.scaleLinear()
+		.domain([2000,2010])
+		.range([margin.left, width - margin.right]);
+        
+	
+	    let y = d3.scaleLinear()
+		.domain([0, 1])
+		.range([height - margin.bottom, margin.top]);
 
-  // Add the valueline path.
-  svg.append("path")
-      .data([data])
-      .attr("class", "line")
-      .attr("d", valueline); 
-      
-  // Add the scatterplot
-  svg.selectAll("dot")
-      .data(data)
-    .enter().append("circle")
-      .attr("r", 5)
-      .attr("cx", function(d) { return x(d.Year); })
-      .attr("cy", function(d) { return y(d.Nostalgia_Index); });
+        //axes
+        let xAxis = svg.append("g")
+            .attr("transform", `translate(0,${height - margin.bottom})`)   
+            .call(d3.axisBottom(x))
+            .attr("stroke-width", 1.5)
 
-  // Add the X Axis
-  svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+        let yAxis = svg.append("g")
+            .attr("transform", `translate(${margin.left},0)`)
+            .call(d3.axisLeft(y))
+            .attr("stroke-width", 1.5)
 
-  // Add the Y Axis
-  svg.append("g")
-      .call(d3.axisLeft(y));
 
-});
+            svg.append("path")
+            .datum(this.data)
+            .attr("fill", "none")
+            .attr("stroke", "black")
+            .attr("stroke-width", 1.5)
+            .attr("d", d3.line()
+                .x(d => x(d.Year))
+                .y(d => y(d.Nostalgia_Index))
+            )
+        
+        // // Append X-axis to the SVG container
+        // svg.append("g")
+        // .attr("class", "x-axis")
+        // .attr("transform", "translate(0, 600)") // Position the X-axis at the bottom
+        // .call(xAxis); // Call the X-axis generator
+
+        // // Append Y-axis to the SVG container
+        // svg.append("g")
+        // .attr("class", "y-axis")
+        // .call(yAxis); // Call the Y-axis generator
+
+        // svg.selectAll(".x-axis text")
+        //     .style("font-size", "12px")
+        //     .attr("transform", "translate(0, 10)"); // Adjust label position
+
+
+        // console.log(svg.selectAll(".dot").data(this.data, d => d.Year))
+        let dots = svg.selectAll(".dot").data(this.data, d => d.Nostalgia_Index).join("circle")
+            .attr("class", "dot")
+            .attr("cx", d => x(d.Year))
+            .attr("cy", d => y(d.Nostalgia_Index))
+            .attr("r", 5)
+            .style("fill", "black")
+        };
+
+
+
+}

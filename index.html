@@ -24,15 +24,14 @@
       </ul>
       <h1>Welcome to Wave2K</h1>
     </div>
-    <!-- <div class="background-image"> -->
+    <div class="background-image">
       <div class="container page-content">
         <p>An interactive visualization tool for how changes in technology affect the use of slang. While testing, we
           used words like 'text' and 'selfie' to track the popularization of cellphones.</p>
       </div>
-      <!-- <div> -->
-        <div>
           <h2>Overall Nostalgia index</h2>
-          <svg id="main-graph"></svg>
+        <div id="main">
+          <svg id="main-graph" style="height:650px; width:850px;"></svg>
         </div>
         <table class="graphs">
           <tr>
@@ -54,6 +53,7 @@
             </div>
           </tr>
         </table>
+    </div>
         <img src="https://media.giphy.com/media/9iaCSLyzX3h6g/giphy.gif">
         <img src="https://media.giphy.com/media/3ohhwuiYAq2pNT4e5y/giphy.gif">
         <img src="https://media.giphy.com/media/xphU9LAE3lfO6Tn88N/giphy.gif" width="150px">
@@ -61,6 +61,11 @@
         <img src="https://media.giphy.com/media/xSVQgqlSTMXYs/giphy.gif" width="150px">
         <br>
   </main>
+  <script>
+    // Create a new MeetingVis object (class defined in meetings.js) and tell it to render.
+    meeting_vis = new MeetingVis("main-graph", song_data);
+    meeting_vis.render();
+  </script>
 </body>
 
 </html>
