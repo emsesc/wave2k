@@ -15,6 +15,11 @@ body {
     background-color: #f0f0f0;
 }
 
+.logo {
+    width: 200px; /* Set a specific width */
+    height: auto; /* Let the height adjust automatically to maintain aspect ratio */
+}
+
 /* Navbar styles */
 #navbar {
     background-color: #00FF59;
@@ -35,6 +40,7 @@ body {
 
 #navbar li {
     margin-right: 20px; /* Adjust the spacing between tabs */
+    text-align: center;
 }
 
 #navbar li:last-child {
@@ -49,18 +55,13 @@ body {
 }
 
 h1 {
-    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+    text-shadow: 0 0 10px #FF0000, 0 0 10px #0000FF;
 }
 
 /* Page styles */
 .container {
     text-align: center;
     padding: 20px;
-}
-
-.logo {
-    width: 100px;
-    height: 100px;
 }
 
 .background-image {
