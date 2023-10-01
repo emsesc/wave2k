@@ -14,13 +14,14 @@ body, h1, ul, li {
 body {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     background-color: #f0f0f0;
+    height: 1000px;
 }
 
 svg {
     background-color: transparent;
 }
 
-h2{
+h2, p{
     margin: 25px;
 }
 
@@ -77,6 +78,13 @@ h1 {
     text-shadow: 0 0 10px #FF0000, 0 0 10px #0000FF;
 }
 
+.tippy-box table {
+	font-size: 10pt;
+	color: white;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-shadow: 0 0 10px #FF0000, 0 0 10px #0000FF;
+}
+
 /* Page styles */
 .container {
     text-align: center;
@@ -86,13 +94,23 @@ h1 {
 .background-image {
     background-image: url('./assets/background.jpg'); /* Add your background image URL here */
     background-size: cover;
-    background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 800px; /* Adjust height as needed */
+    background-repeat: repeat-y;
+    height: 800px; 
 }
 
 .page-content {
     background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 10px;
+}
+
+.tippy-box {
+	background-color: #000000;
+	color: #ffffff;
+	font-family: sans-serif;
+	padding: 5px 8px;
+	border-radius: 5px;
+	opacity: 0.8;
+	font-weight: bold;
 }

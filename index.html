@@ -10,6 +10,8 @@
   <link rel="icon" href="./assets/spotify_logo.png" type="image/x-icon">
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="https://unpkg.com/simple-statistics@7.8.3/dist/simple-statistics.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script> 
+  <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
   <script src="index.js"></script>
 </head>
 
@@ -26,14 +28,21 @@
     </div>
     <div class="background-image">
       <div class="container page-content">
-        <p>An interactive visualization tool for how changes in technology affect the use of slang. While testing, we
-          used words like 'text' and 'selfie' to track the popularization of cellphones.</p>
+        <div id="gifs">
+          <img src="https://media.giphy.com/media/9iaCSLyzX3h6g/giphy.gif">
+          <img src="https://media.giphy.com/media/3ohhwuiYAq2pNT4e5y/giphy.gif">
+          <img src="https://media.giphy.com/media/xphU9LAE3lfO6Tn88N/giphy.gif" width="150px">
+          <img src="https://media.giphy.com/media/tLYByW65UiV7L84d6O/giphy.gif" width="150px">
+          <img src="https://media.giphy.com/media/xSVQgqlSTMXYs/giphy.gif" width="150px">
+          <br>
+      </div>
       </div>
           <h2>Overall Nostalgia index</h2>
+          <p>Index calculated based on occurances of 'time', 'remember', 'dream', 'home', 'summer', 'friend', and 'moments'</p>
         <div id="main">
           <svg id="main-graph" style="height:650px; width:850px;"></svg>
         </div>
-        <table class="graphs">
+        <!-- <table class="graphs">
           <tr>
             <div id="remember-graph">
             </div>
@@ -52,14 +61,8 @@
             <div id="moments-graph">
             </div>
           </tr>
-        </table>
+        </table> -->
     </div>
-        <img src="https://media.giphy.com/media/9iaCSLyzX3h6g/giphy.gif">
-        <img src="https://media.giphy.com/media/3ohhwuiYAq2pNT4e5y/giphy.gif">
-        <img src="https://media.giphy.com/media/xphU9LAE3lfO6Tn88N/giphy.gif" width="150px">
-        <img src="https://media.giphy.com/media/tLYByW65UiV7L84d6O/giphy.gif" width="150px">
-        <img src="https://media.giphy.com/media/xSVQgqlSTMXYs/giphy.gif" width="150px">
-        <br>
   </main>
   <script>
     // Create a new MeetingVis object (class defined in meetings.js) and tell it to render.

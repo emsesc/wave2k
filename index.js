@@ -44,11 +44,13 @@ class MeetingVis {
             .attr("transform", `translate(0,${height - margin.bottom})`)   
             .call(d3.axisBottom(x))
             .attr("stroke-width", 1.5)
+            
 
         let yAxis = svg.append("g")
             .attr("transform", `translate(${margin.left},0)`)
             .call(d3.axisLeft(y))
             .attr("stroke-width", 1.5)
+            
 
 
             svg.append("path")
@@ -60,30 +62,33 @@ class MeetingVis {
                 .x(d => x(d.Year))
                 .y(d => y(d.Nostalgia_Index))
             )
+
+            svg.append("text")
+                .attr("transform", "rotate(-90)")
+                .attr("y", 0 - margin.left)
+                .attr("x",0 - (height / 2))
+                .attr("dy", "1em")
+                .style("text-anchor", "middle")
+                .text("Nostalgia Index");
+
+            svg.append("text")
+                .attr("transform", "translate(" + (width / 2) + " ," + (height + margin.bottom) + ")")
+                .style("text-anchor", "middle")
+                .text("Year");
         
-        // // Append X-axis to the SVG container
-        // svg.append("g")
-        // .attr("class", "x-axis")
-        // .attr("transform", "translate(0, 600)") // Position the X-axis at the bottom
-        // .call(xAxis); // Call the X-axis generator
-
-        // // Append Y-axis to the SVG container
-        // svg.append("g")
-        // .attr("class", "y-axis")
-        // .call(yAxis); // Call the Y-axis generator
-
-        // svg.selectAll(".x-axis text")
-        //     .style("font-size", "12px")
-        //     .attr("transform", "translate(0, 10)"); // Adjust label position
-
-
-        // console.log(svg.selectAll(".dot").data(this.data, d => d.Year))
         let dots = svg.selectAll(".dot").data(this.data, d => d.Nostalgia_Index).join("circle")
             .attr("class", "dot")
             .attr("cx", d => x(d.Year))
             .attr("cy", d => y(d.Nostalgia_Index))
             .attr("r", 5)
             .style("fill", "black")
+            .attr("data-tippy-content", d => {
+                let html = "<table>" 
+                + "<tr><th colspan='2'>Total Occurences " + d.Total_Count + "</th></tr>"
+                + "</table>"
+                return html;
+            })
+            .call(selection => tippy(selection.nodes(), {allowHTML: true}))
         };
 
 
