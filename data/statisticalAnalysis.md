@@ -1,12 +1,12 @@
 Credit to: https://dk81.github.io/dkmathstats_site/rtext-freq-words.html
 
+For each year, create word count.
 ```R
 library(dplyr)
 library(tidytext)
 library(ggplot2)
 
 lyrics_2010 <- readLines("~/Documents/GitHub/omg-spotify/data/lyrics/2010/lyrics_2010.txt")
-# Check peter pan:
 head(lyrics_2010, n = 20)
 lyrics_2010_df <- data_frame(Text = lyrics_2010) # tibble aka neater data frame
 
@@ -20,6 +20,7 @@ lyrics_2010_wordcounts <- lyrics_2010_words %>% count(word, sort = TRUE)
 head(lyrics_2010_wordcounts)
 ```
 
+Compile all data into one data frame
 ```R
 # Load the dplyr package (if not already installed)
 install.packages("dplyr")
@@ -50,6 +51,7 @@ for (year in 2000:2010) {
 print(merged_lyrics)
 ```
 
+Graph data by year, filtering by a specific word
 ```r
 # Load the ggplot2 package (if not already installed)
 library(ggplot2)
@@ -63,6 +65,7 @@ word_data <- merged_lyrics %>%
   filter(word == word_to_graph)
 
 # Create a line plot using ggplot2
+# Credit: ChatGPT
 plot <- ggplot(word_data, aes(x = Year, y = n)) +
   geom_line() +
   geom_point() +
@@ -77,6 +80,7 @@ plot <- ggplot(word_data, aes(x = Year, y = n)) +
 print(plot)
 ```
 
+Calculate Nostalgia Index
 ```r
 # Load the dplyr package (if not already installed)
 install.packages("dplyr")
@@ -126,6 +130,7 @@ word_counts <- word_counts %>%
 print(word_counts)
 ```
 
+Graph Nostalgia Index
 ```r
 library(ggplot2)
 plot <- ggplot(word_counts, aes(x = Year, y = Nostalgia_Index)) +
@@ -136,4 +141,14 @@ plot <- ggplot(word_counts, aes(x = Year, y = Nostalgia_Index)) +
         x = "Year",
         y = "Nostalgia Index"
     )
+```
+
+Perform Analysis of Variance Test
+```r
+# Fit an ANOVA model
+anova_model <- aov(Nostalgia_Index ~ Year, data = word_counts)
+
+# Perform ANOVA
+anova_result <- anova(anova_model)
+print(anova_result)
 ```
