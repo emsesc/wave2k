@@ -24,15 +24,15 @@
       </ul>
       <h1>Welcome to Wave2K</h1>
     </div>
-    <div class="background-image">
+    <!-- <div class="background-image"> -->
       <div class="container page-content">
         <p>An interactive visualization tool for how changes in technology affect the use of slang. While testing, we
           used words like 'text' and 'selfie' to track the popularization of cellphones.</p>
       </div>
-      <div>
+      <!-- <div> -->
         <div>
           <h2>Overall Nostalgia index</h2>
-          <div id="main-graph"></div>
+          <svg id="main-graph"></svg>
         </div>
         <table class="graphs">
           <tr>
@@ -55,10 +55,6 @@
           </tr>
         </table>
   </main>
-  <script>
-    meeting_vis = new graphVis("main-graph", freq_data);
-    meeting_vis.render();
-  </script>
 </body>
 
 </html>
